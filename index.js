@@ -40,8 +40,7 @@ bot.on("contact", (ctx) => {
 	let userObject = {
 		first_name: ctx.update.message.chat.first_name,
 		last_name: ctx.update.message.chat.last_name,
-		username: ctx.update.message.chat.username,
-		Chat_Id: ctx.update.message.chat.id,
+		user_Id: ctx.update.message.chat.id,
 		phone_number: ctx.update.message.contact.phone_number,
 	};
 	const api_url = "localhost:5000//ride-booking-api/api/users";
@@ -74,7 +73,7 @@ bot.on("location", (ctx) => {
 		latitude: ctx.update.message.location.latitude,
 		longitude: ctx.update.message.location.longitude,
 	};
-	const api_url = "https://instant-prayer-api.herokuapp.com/api/users";
+	const api_url = "localhost:5000//ride-booking-api/api/users";
 	var options = {
 		uri: api_url,
 		method: "POST",
@@ -140,7 +139,7 @@ bot.action(/.+/, (ctx) => {
 	let prefferedDate = {
 		prayerDate: ctx.match[0],
 	};
-	const api_url = "https://instant-prayer-api.herokuapp.com/api/users";
+	const api_url = "localhost:5000//ride-booking-api/api/users";
 	var options = {
 		uri: api_url,
 		method: "POST",
