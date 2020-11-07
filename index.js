@@ -8,9 +8,10 @@ const { markup } = require("telegraf/extra");
 const bot = new Telegraf("1466788797:AAEVNxieNR7ILDo_QQt5IxZPsDQ1CzX86e0");
 
 // Global commands
+// Global commands
 bot.start((ctx) => {
 	return ctx.reply(
-		"Let us proceed",
+		"Almost there! Share your contact in order to proceed.",
 		Extra.markup((markup) => {
 			return markup
 				.resize()
@@ -25,25 +26,45 @@ bot.start((ctx) => {
 
 bot.help((ctx) => {
 	return ctx.reply(
-		"Hey ✋️, I'm Ride Booking bot.\n\nYou can start by sending this command:\n\n/start - restarts the bot",
+		"Hey ✋️, I'm free taxi booking bot. In order to get this service, you need to share your contact with us. Then share your location and we will connect you with taxi near your location.",
 		Extra.markup((markup) => {
 			return markup
 				.resize()
-				.keyboard([["Start"]])
+				.keyboard([["start"]])
 				.oneTime();
 		})
 	);
 });
 
+bot.command("prayers", (ctx) => {
+	return ctx.reply(
+		"Choose your preffered prayer date",
+		Extra.markup((m) =>
+			m.inlineKeyboard([
+				[m.callbackButton("Mon", "Monday"), m.callbackButton("Tue", "Tuesday")],
+				[
+					m.callbackButton("Wed", "Wednesday"),
+					m.callbackButton("Thu", "Thursday"),
+				],
+				[
+					m.callbackButton("Fri", "Friday"),
+					m.callbackButton("Sat", "Saturday"),
+				],
+				[m.callbackButton("Sun", "Sunday")],
+			])
+		)
+	);
+});
 
 bot.on("contact", (ctx) => {
 	let userObject = {
 		first_name: ctx.update.message.chat.first_name,
 		last_name: ctx.update.message.chat.last_name,
-		user_Id: ctx.update.message.chat.id,
+		username: ctx.update.message.chat.username,
+		Chat_Id: ctx.update.message.chat.id,
 		phone_number: ctx.update.message.contact.phone_number,
 	};
-	const api_url = "localhost:5000//ride-booking-api/api/users";
+	const api_url = process.env.API_URL;
 	var options = {
 		uri: api_url,
 		method: "POST",
@@ -54,12 +75,13 @@ bot.on("contact", (ctx) => {
 			console.log(error);
 		} else {
 			return ctx.reply(
-				"Good Now share me your location, it helps you meet least distant car",
+				"Good Now share me your location, it helps me send you more accurate prayers",
 				Extra.markup((markup) => {
 					return markup
 						.resize()
 						.keyboard([
-							[markup.locationRequestButton("Share Your Location")]
+							[markup.locationRequestButton("Share Your Location")],
+							["💡 Help"],
 						])
 						.oneTime();
 				})
@@ -73,7 +95,7 @@ bot.on("location", (ctx) => {
 		latitude: ctx.update.message.location.latitude,
 		longitude: ctx.update.message.location.longitude,
 	};
-	const api_url = "localhost:5000//ride-booking-api/api/users";
+	const api_url = process.env.API_URL;
 	var options = {
 		uri: api_url,
 		method: "POST",
@@ -84,9 +106,13 @@ bot.on("location", (ctx) => {
 			console.log(error);
 		} else {
 			return ctx.reply(
-				"Good",
-				
-				
+				"Thanks for sharing your location,\nyou can go to /prayers to choose your preffered prayer date",
+				Extra.markup((markup) => {
+					return markup
+						.resize()
+						.keyboard([["prayers"], ["💡 Help"]])
+						.oneTime();
+				})
 			);
 		}
 	});
@@ -95,7 +121,7 @@ bot.on("location", (ctx) => {
 // message reply section
 bot.hears("👥 About Me", (ctx) => {
 	ctx.reply(
-		"Hey There 👋, This bot helps you to find the least distant ride. And thank you for using our simplest ride booking platform to use",
+		"Hey There 👋, I am helping you to book the least distant taxi from where you are now.",
 		Extra.markup((markup) => {
 			return markup
 				.resize()
@@ -105,9 +131,9 @@ bot.hears("👥 About Me", (ctx) => {
 	);
 });
 
-bot.hears("Start", (ctx) => {
+bot.hears("start", (ctx) => {
 	return ctx.reply(
-		"Let us proceed",
+		"welcome to prayer mobilzation, In order to get started share me your contact and location or type /help if you need any help",
 		Extra.markup((markup) => {
 			return markup
 				.resize()
@@ -120,15 +146,33 @@ bot.hears("Start", (ctx) => {
 	);
 });
 
-
+// bot.hears("prayers", (ctx) => {
+// 	return ctx.reply(
+// 		"Choose your preffered prayer date",
+// 		Extra.markup((m) =>
+// 			m.inlineKeyboard([
+// 				[m.callbackButton("Mon", "Monday"), m.callbackButton("Tue", "Tuesday")],
+// 				[
+// 					m.callbackButton("Wed", "Wednesday"),
+// 					m.callbackButton("Thu", "Thursday"),
+// 				],
+// 				[
+// 					m.callbackButton("Fri", "Friday"),
+// 					m.callbackButton("Sat", "Saturday"),
+// 				],
+// 				[m.callbackButton("Sun", "Sunday")],
+// 			])
+// 		)
+// 	);
+// });
 
 bot.hears("💡 Help", (ctx) => {
 	return ctx.reply(
-		"Hey ✋️, I'm Ride Booking bot.\n\nYou can start by sending this command:\n\n/start - restarts the bot",
+		"Hey ✋️, I'm free taxi booking bot. In order to get this service, you need to share your contact with us. Then share your location and we will connect you with taxi near your location.",
 		Extra.markup((markup) => {
 			return markup
 				.resize()
-				.keyboard([["Start"]])
+				.keyboard([["start"]])
 				.oneTime();
 		})
 	);
@@ -139,7 +183,7 @@ bot.action(/.+/, (ctx) => {
 	let prefferedDate = {
 		prayerDate: ctx.match[0],
 	};
-	const api_url = "localhost:5000//ride-booking-api/api/users";
+	const api_url = process.env.API_URL;
 	var options = {
 		uri: api_url,
 		method: "POST",
@@ -155,5 +199,4 @@ bot.action(/.+/, (ctx) => {
 	});
 });
 
-// bot.action("delete", ({deleteMessage}) => deleteMessage())
 bot.launch();

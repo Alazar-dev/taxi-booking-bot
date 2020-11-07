@@ -8,7 +8,7 @@ class BotRequest {
 	sendPostRequest(methodName, jsonObject, callback) {
 		const api_url = this.telegram_bot_api + "/" + methodName;
 		var options = {
-			uri: api_url,
+			url: api_url,
 			method: "POST",
 			json: jsonObject,
 		};
