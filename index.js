@@ -125,7 +125,7 @@ bot.hears("👥 About Me", (ctx) => {
 		Extra.markup((markup) => {
 			return markup
 				.resize()
-				.keyboard([["Start"]])
+				.keyboard([["start"]])
 				.oneTime();
 		})
 	);
@@ -146,25 +146,7 @@ bot.hears("start", (ctx) => {
 	);
 });
 
-// bot.hears("prayers", (ctx) => {
-// 	return ctx.reply(
-// 		"Choose your preffered prayer date",
-// 		Extra.markup((m) =>
-// 			m.inlineKeyboard([
-// 				[m.callbackButton("Mon", "Monday"), m.callbackButton("Tue", "Tuesday")],
-// 				[
-// 					m.callbackButton("Wed", "Wednesday"),
-// 					m.callbackButton("Thu", "Thursday"),
-// 				],
-// 				[
-// 					m.callbackButton("Fri", "Friday"),
-// 					m.callbackButton("Sat", "Saturday"),
-// 				],
-// 				[m.callbackButton("Sun", "Sunday")],
-// 			])
-// 		)
-// 	);
-// });
+
 
 bot.hears("💡 Help", (ctx) => {
 	return ctx.reply(
