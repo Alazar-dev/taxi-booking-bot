@@ -36,25 +36,25 @@ bot.help((ctx) => {
 	);
 });
 
-bot.command("prayers", (ctx) => {
-	return ctx.reply(
-		"Choose your preffered prayer date",
-		Extra.markup((m) =>
-			m.inlineKeyboard([
-				[m.callbackButton("Mon", "Monday"), m.callbackButton("Tue", "Tuesday")],
-				[
-					m.callbackButton("Wed", "Wednesday"),
-					m.callbackButton("Thu", "Thursday"),
-				],
-				[
-					m.callbackButton("Fri", "Friday"),
-					m.callbackButton("Sat", "Saturday"),
-				],
-				[m.callbackButton("Sun", "Sunday")],
-			])
-		)
-	);
-});
+// bot.command("prayers", (ctx) => {
+// 	return ctx.reply(
+// 		"Choose your preffered prayer date",
+// 		Extra.markup((m) =>
+// 			m.inlineKeyboard([
+// 				[m.callbackButton("Mon", "Monday"), m.callbackButton("Tue", "Tuesday")],
+// 				[
+// 					m.callbackButton("Wed", "Wednesday"),
+// 					m.callbackButton("Thu", "Thursday"),
+// 				],
+// 				[
+// 					m.callbackButton("Fri", "Friday"),
+// 					m.callbackButton("Sat", "Saturday"),
+// 				],
+// 				[m.callbackButton("Sun", "Sunday")],
+// 			])
+// 		)
+// 	);
+// });
 
 bot.on("contact", (ctx) => {
 	let userObject = {
@@ -70,10 +70,10 @@ bot.on("contact", (ctx) => {
 		method: "POST",
 		json: userObject
 	};
-	request(options, function (error, response, body) {
-		if (error) {
-			console.log(error);
-		} else {
+	request(options, function ( response, body) {
+		// if (error) {
+		// 	console.log(error);
+		// } else {
 			return ctx.reply(
 				"Good Now share me your location, it helps me send you more accurate prayers",
 				Extra.markup((markup) => {
@@ -86,7 +86,7 @@ bot.on("contact", (ctx) => {
 						.oneTime();
 				})
 			);
-		}
+		// }
 	});
 });
 
