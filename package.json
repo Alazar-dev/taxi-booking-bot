@@ -1,18 +1,23 @@
 {
-	"name": "prayer-mobilization-telegram-bot",
-	"version": "1.0.0",
-	"description": "Prayer Mobilization bot for sending prayers",
-	"main": "index.js",
-	"author": "Eyoatam Tamirat",
-	"scripts": {
-		"start": "node server.js"
-	},
-	"license": "ISC",
-	"dependencies": {
-		"body-parser": "^1.19.0",
-		"cors": "^2.8.5",
-		"express": "^4.17.1",
-		"request": "^2.88.2",
-		"telegraf": "^3.38.0"
-	}
+  "name": "taxi-booking-bot",
+  "version": "1.0.0",
+  "description": "- A prayer mobilization platform where prayers across the world can get different prayer requests through Instant Messaging Platforms. # taxi-booking-bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alazar-dev/taxi-booking-bot.git"
+  },
+  "author": "Alazar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alazar-dev/taxi-booking-bot/issues"
+  },
+  "homepage": "https://github.com/Alazar-dev/taxi-booking-bot#readme",
+  "dependencies": {
+    "node": "^15.0.1"
+  }
 }

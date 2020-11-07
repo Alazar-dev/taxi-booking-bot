@@ -66,7 +66,7 @@ bot.on("contact", (ctx) => {
 	};
 	const api_url = process.env.API_URL;
 	var options = {
-		uri: api_url,
+		url: api_url,
 		method: "POST",
 		json: userObject,
 	};
