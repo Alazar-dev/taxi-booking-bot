@@ -1,10 +1,9 @@
 {
   "name": "taxi-booking-bot",
   "version": "1.0.0",
-  "description": "- A prayer mobilization platform where prayers across the world can get different prayer requests through Instant Messaging Platforms. # taxi-booking-bot",
+  "description": "- A taxi booking platform where people can search and book the least distant taxi from where they are.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "repository": {
@@ -18,6 +17,12 @@
   },
   "homepage": "https://github.com/Alazar-dev/taxi-booking-bot#readme",
   "dependencies": {
-    "node": "^15.0.1"
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "node": "^15.0.1",
+    "request": "^2.88.2",
+    "telegraf": "^3.38.0"
   }
 }
