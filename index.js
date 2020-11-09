@@ -1,19 +1,15 @@
 const Markup = require("telegraf/markup");
 const Telegraf = require("telegraf");
-// const { Composer } = require('micro-bot')
 const Extra = require("telegraf/extra");
 const https = require("https");
 const request = require("request");
 const { markup } = require("telegraf/extra");
 
 const bot = new Telegraf("1466788797:AAEVNxieNR7ILDo_QQt5IxZPsDQ1CzX86e0");
-// const bot = new Composer("1466788797:AAEVNxieNR7ILDo_QQt5IxZPsDQ1CzX86e0");
 
-// Global commands
-// Global commands
 bot.start((ctx) => {
 	return ctx.reply(
-		"Successfully registered! Share your contact in order to proceed.",
+		"Welcome to our free and simple taxi booking bot.",
 		Extra.markup((markup) => {
 			return markup
 				.resize()
@@ -38,25 +34,6 @@ bot.help((ctx) => {
 	);
 });
 
-// bot.command("prayers", (ctx) => {
-// 	return ctx.reply(
-// 		"Choose your preffered prayer date",
-// 		Extra.markup((m) =>
-// 			m.inlineKeyboard([
-// 				[m.callbackButton("Mon", "Monday"), m.callbackButton("Tue", "Tuesday")],
-// 				[
-// 					m.callbackButton("Wed", "Wednesday"),
-// 					m.callbackButton("Thu", "Thursday"),
-// 				],
-// 				[
-// 					m.callbackButton("Fri", "Friday"),
-// 					m.callbackButton("Sat", "Saturday"),
-// 				],
-// 				[m.callbackButton("Sun", "Sunday")],
-// 			])
-// 		)
-// 	);
-// });
 
 bot.on("contact", (ctx) => {
 	let userObject = {
@@ -77,7 +54,7 @@ bot.on("contact", (ctx) => {
 		// 	console.log(error);
 		// } else {
 			return ctx.reply(
-				"Almost there, share me your location now.",
+				"Successfully registered! Share your contact in order to proceed.",
 				Extra.markup((markup) => {
 					return markup
 						.resize()
@@ -183,5 +160,4 @@ bot.action(/.+/, (ctx) => {
 	});
 });
 
-// module.exports = bot;
 bot.launch();
