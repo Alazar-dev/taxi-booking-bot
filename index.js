@@ -28,7 +28,9 @@ bot.help((ctx) => {
 		Extra.markup((markup) => {
 			return markup
 				.resize()
-				.keyboard([["Share Your Location"]])
+				.keyboard([
+					[markup.contactRequestButton("Share Your Location"]
+					])
 				.oneTime();
 		})
 	);
@@ -133,7 +135,9 @@ bot.hears("💡 Help", (ctx) => {
 		Extra.markup((markup) => {
 			return markup
 				.resize()
-				.keyboard([["Share Your Location"]])
+				.keyboard([
+					[markup.contactRequestButton("Share Your Location"]
+					])
 				.oneTime();
 		})
 	);
