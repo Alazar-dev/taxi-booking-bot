@@ -13,7 +13,7 @@ const bot = new Telegraf("1466788797:AAEVNxieNR7ILDo_QQt5IxZPsDQ1CzX86e0");
 // Global commands
 bot.start((ctx) => {
 	return ctx.reply(
-		"Almost there! Share your contact in order to proceed.",
+		"Successfully registered! Share your contact in order to proceed.",
 		Extra.markup((markup) => {
 			return markup
 				.resize()
@@ -77,7 +77,7 @@ bot.on("contact", (ctx) => {
 		// 	console.log(error);
 		// } else {
 			return ctx.reply(
-				"Good Now share me your location, it helps me send you more accurate prayers",
+				"Almost there, share me your location now.",
 				Extra.markup((markup) => {
 					return markup
 						.resize()
@@ -123,7 +123,7 @@ bot.on("location", (ctx) => {
 // message reply section
 bot.hears("👥 About Me", (ctx) => {
 	ctx.reply(
-		"Hey There 👋, I am helping you to book the least distant taxi from where you are now.",
+		"Hey there 👋, I am helping you to book the least distant taxi from where you are now.",
 		Extra.markup((markup) => {
 			return markup
 				.resize()
@@ -135,7 +135,7 @@ bot.hears("👥 About Me", (ctx) => {
 
 bot.hears("start", (ctx) => {
 	return ctx.reply(
-		"welcome to prayer mobilzation, In order to get started share me your contact and location or type /help if you need any help",
+		"Successfully registered! Share your contact in order to proceed.",
 		Extra.markup((markup) => {
 			return markup
 				.resize()
