@@ -1,11 +1,13 @@
 const Markup = require("telegraf/markup");
-const Telegraf = require("telegraf");
+// const Telegraf = require("telegraf");
+const { Composer } = require('micro-bot')
 const Extra = require("telegraf/extra");
 const https = require("https");
 const request = require("request");
 const { markup } = require("telegraf/extra");
 
-const bot = new Telegraf("1466788797:AAEVNxieNR7ILDo_QQt5IxZPsDQ1CzX86e0");
+// const bot = new Telegraf("1466788797:AAEVNxieNR7ILDo_QQt5IxZPsDQ1CzX86e0");
+const bot = new Compose("1466788797:AAEVNxieNR7ILDo_QQt5IxZPsDQ1CzX86e0");
 
 // Global commands
 // Global commands
@@ -181,4 +183,5 @@ bot.action(/.+/, (ctx) => {
 	});
 });
 
-bot.launch();
+module.exports = bot
+// bot.launch();
