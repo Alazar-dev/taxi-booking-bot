@@ -14,7 +14,7 @@ bot.start((ctx) => {
 			return markup
 				.resize()
 				.keyboard([
-					[markup.contactRequestButton("Share Your Location"), , "💡 Help"],
+					[markup.contactRequestButton("Share Your Contact"), , "💡 Help"],
 					["👥 About Me"],
 				])
 				.oneTime();
@@ -29,7 +29,7 @@ bot.help((ctx) => {
 			return markup
 				.resize()
 				.keyboard([
-					[markup.contactRequestButton("Share Your Location"]
+					[markup.contactRequestButton("Share Your Contact")]
 					])
 				.oneTime();
 		})
@@ -106,7 +106,9 @@ bot.hears("👥 About Me", (ctx) => {
 		Extra.markup((markup) => {
 			return markup
 				.resize()
-				.keyboard([["start"]])
+				.keyboard([
+							[markup.contactRequestButton("Share Your Contact")]
+						])
 				.oneTime();
 		})
 	);
@@ -136,7 +138,7 @@ bot.hears("💡 Help", (ctx) => {
 			return markup
 				.resize()
 				.keyboard([
-					[markup.contactRequestButton("Share Your Location"]
+					[markup.contactRequestButton("Share Your Contact")]
 					])
 				.oneTime();
 		})
