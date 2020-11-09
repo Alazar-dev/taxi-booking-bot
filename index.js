@@ -28,7 +28,7 @@ bot.help((ctx) => {
 		Extra.markup((markup) => {
 			return markup
 				.resize()
-				.keyboard([["start"]])
+				.keyboard([["Share Your Location"]])
 				.oneTime();
 		})
 	);
