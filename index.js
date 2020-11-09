@@ -54,7 +54,7 @@ bot.on("contact", (ctx) => {
 		// 	console.log(error);
 		// } else {
 			return ctx.reply(
-				"Successfully registered! Share your contact in order to proceed.",
+				"Successfully registered! Share your location in order to proceed.",
 				Extra.markup((markup) => {
 					return markup
 						.resize()
@@ -133,7 +133,7 @@ bot.hears("💡 Help", (ctx) => {
 		Extra.markup((markup) => {
 			return markup
 				.resize()
-				.keyboard([["start"]])
+				.keyboard([["Share Your Location"]])
 				.oneTime();
 		})
 	);
