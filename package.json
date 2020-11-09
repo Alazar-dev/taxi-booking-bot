@@ -107,7 +107,6 @@
     "vary": "^1.1.2",
     "verror": "^1.10.0"
   },
-    "main": "index.js",
   "scripts": {
     "start": "micro-bot"
   },
