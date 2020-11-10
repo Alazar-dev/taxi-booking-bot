@@ -79,10 +79,10 @@ bot.on("location", (ctx) => {
 		method: "POST",
 		json: locationObject,
 	};
-	request(options, function (error, response, body) {
-		if (error) {
-			console.log(error);
-		} else {
+	request(options, function (response, body) {
+		// if (error) {
+		// 	console.log(error);
+		// } else {
 			return ctx.reply(
 				"Thanks for sharing your location.",
 				Extra.markup((markup) => {
@@ -92,7 +92,7 @@ bot.on("location", (ctx) => {
 						.oneTime();
 				})
 			);
-		}
+		// }
 	});
 });
 
