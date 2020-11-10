@@ -4,7 +4,7 @@ const Extra = require("telegraf/extra");
 const https = require("https");
 const request = require("request");
 const { markup } = require("telegraf/extra");
-require('dotenv').config()
+process.env.Token = require('dotenv').config()
 
 const bot = new Telegraf(process.env.Token);
 
