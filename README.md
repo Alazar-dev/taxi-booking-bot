@@ -1,3 +1,2 @@
-# prayer-mobilization-nodejs-telegram-bot
-- A prayer mobilization platform where prayers across the world can get different prayer requests through Instant Messaging Platforms.
-# taxi-booking-bot
+# Taxi-booking-nodejs-telegram-bot
+- A taxi booking platform where users register on the bot and get the least near taxi from where they currently are.
