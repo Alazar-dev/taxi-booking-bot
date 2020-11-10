@@ -51,23 +51,20 @@ bot.on("contact", (ctx) => {
 		method: "POST",
 		json: userObject
 	};
-	request(options, function ( response, body) {
-		// if (error) {
-		// 	console.log(error);
-		// } else {
-			return ctx.reply(
-				"Successfully registered! Share your location in order to proceed.",
-				Extra.markup((markup) => {
-					return markup
-						.resize()
-						.keyboard([
-							[markup.locationRequestButton("Share Your Location")],
-							["💡 Help"],
-						])
-						.oneTime();
-				})
-			);
-		// }
+	request(options, function (response, body, next) {
+	
+		return ctx.reply(
+			"Successfully registered! Share your location in order to proceed.",
+			Extra.markup((markup) => {
+				return markup
+					.resize()
+					.keyboard([
+						[markup.locationRequestButton("Share Your Location")],
+						["💡 Help"],
+					])
+					.oneTime();
+			})
+		);
 	});
 });
 
@@ -98,6 +95,45 @@ bot.on("location", (ctx) => {
 		}
 	});
 });
+
+bot.hears("Request Driver", (ctx => {
+	ctx.reply(
+		"Searching nearby driver...",
+		Extra.markup((markup) => {
+			return markup
+			.resize()
+			.keyboard(["Search Again"], ["Restart"])
+			.oneTime();
+		})
+	);
+}));
+
+bot.hears("Search Again", (ctx => {
+	ctx.reply(
+		"Searching nearby driver...",
+		Extra.markup((markup) => {
+			return markup
+			.resize()
+			.keyboard(["Search Again"], ["Restart"])
+			.oneTime();
+		})
+	);
+}));
+
+bot.hears("Restart", (ctx => {
+	return ctx.reply(
+		"Welcome back dear user",
+		Extra.markup((markup) => {
+			return markup
+				.resize()
+				.keyboard([
+					[markup.contactRequestButton("Share Your Contact")],
+					["👥 About Me"],
+				])
+				.oneTime();
+		})
+	);
+}));
 
 // message reply section
 bot.hears("👥 About Me", (ctx) => {
