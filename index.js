@@ -87,11 +87,11 @@ bot.on("location", (ctx) => {
 			console.log(error);
 		} else {
 			return ctx.reply(
-				"Thanks for sharing your location,\nyou can go to /prayers to choose your preffered prayer date",
+				"Thanks for sharing your location.",
 				Extra.markup((markup) => {
 					return markup
 						.resize()
-						.keyboard([["prayers"], ["💡 Help"]])
+						.keyboard([["Request Driver"], ["💡 Help"]])
 						.oneTime();
 				})
 			);
