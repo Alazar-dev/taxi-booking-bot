@@ -80,21 +80,19 @@ bot.on("location", (ctx) => {
 		json: locationObject,
 	};
 	request(options, function (response, body) {
-		// if (error) {
-		// 	console.log(error);
-		// } else {
-			return ctx.reply(
-				"Thanks for sharing your location.",
-				Extra.markup((markup) => {
-					return markup
-						.resize()
-						.keyboard([["Request Driver"], ["💡 Help"]])
-						.oneTime();
-				})
-			);
-		// }
+		return ctx.reply(
+			"Thanks for sharing your location.",
+			Extra.markup((markup) => {
+				return markup
+					.resize()
+					.keyboard([["Request Driver"], ["💡 Help"]])
+					.oneTime();
+			})
+		);
 	});
 });
+
+bot.on
 
 bot.hears("Request Driver", (ctx => {
 	ctx.reply(
@@ -102,7 +100,7 @@ bot.hears("Request Driver", (ctx => {
 		Extra.markup((markup) => {
 			return markup
 			.resize()
-			.keyboard(["Search Again"], ["Restart"])
+			.keyboard([["Search Again"], ["Restart"]])
 			.oneTime();
 		})
 	);
@@ -114,7 +112,7 @@ bot.hears("Search Again", (ctx => {
 		Extra.markup((markup) => {
 			return markup
 			.resize()
-			.keyboard(["Search Again"], ["Restart"])
+			.keyboard([["Search Again"], ["Restart"]])
 			.oneTime();
 		})
 	);
